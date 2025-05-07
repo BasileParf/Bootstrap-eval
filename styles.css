@@ -58,3 +58,14 @@ body {
     flex-wrap: wrap;
     margin-bottom: 1rem;
   }
+
+  .btn-outline-custom {
+    color: #7749F8;
+    border: 1px solid #7749F8;
+    background-color: transparent;
+  }
+  
+  .btn-outline-custom:hover {
+    background-color: #7749F8;
+    color: white;
+  }
