@@ -3,17 +3,27 @@ body {
     margin: 0;
     padding: 0;
   }
-  
+
+  .brand-color-title {
+    color: #8540F5;
+  }
+
   .brand-color {
-    color: #6e00ff;
+    color: #3D0A91;
   }
   
-  .bg-brand {
-    background-color: #6e00ff;
+  .brand-color-menu1 {
+    color: #5227CC;
   }
-  
+
+  .brand-color-menu2 {
+    color: #6C757D;
+  }
+
+
+
   .btn-brand {
-    background-color: #6e00ff;
+    background-color: #7749F8;
     color: #fff;
     border: none;
     padding: 0.5rem 1rem;
@@ -23,7 +33,7 @@ body {
   
   .btn-brand-outline {
     background-color: #f1eaff;
-    color: #6e00ff;
+    color: #7749F8;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -31,11 +41,8 @@ body {
   }
   
   .service-card {
-    background-color: #f9f4ff;
-    border-radius: 12px;
-    padding: 1rem;
     height: 100%;
-    text-align: center;
+    text-align: left;
   }
   
   nav a {
