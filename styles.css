@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .brand-color {
+    color: #6e00ff;
+  }
+  
+  .bg-brand {
+    background-color: #6e00ff;
+  }
+  
+  .btn-brand {
+    background-color: #6e00ff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .btn-brand-outline {
+    background-color: #f1eaff;
+    color: #6e00ff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .service-card {
+    background-color: #f9f4ff;
+    border-radius: 12px;
+    padding: 1rem;
+    height: 100%;
+    text-align: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
