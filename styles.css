@@ -69,3 +69,24 @@ body {
     background-color: #7749F8;
     color: white;
   }
+
+
+  .img-custom1 {
+    width: 40px;
+    height: auto; /* pour garder le ratio */
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+  }
+
+  .img-custom2 {
+    width: 150px;
+    height: auto; /* pour garder le ratio */
+    padding-bottom: 1rem;
+  }
+
+  .svg-custom{
+    width: 50px;
+    height: auto; /* pour garder le ratio */
+    padding-bottom: 1rem;
+    color: #6610F2;
+  }
