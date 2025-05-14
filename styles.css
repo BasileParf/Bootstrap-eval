@@ -90,3 +90,72 @@ body {
     padding-bottom: 1rem;
     color: #6610F2;
   }
+
+
+  
+
+
+
+
+
+
+
+
+  .brand-color2 {
+    text-align: left;
+    color: #3D0A91;
+    font-family: Inter;
+    font-size: 52px;
+    font-weight: 700;
+    font-style: bold;
+
+}
+.review-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1.5rem;
+  height: 100%;
+}
+.badge-custom {
+  background-color: #3D0A91;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.4em 0.6em;
+  border-radius: 30px;
+  font-weight: 500;
+}
+.faq-icon {
+    width: 80px;
+    height: 80px;
+}
+.stars .dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background-color: #3D0A91;
+}
+.stars .dot.empty {
+  background-color: white;
+  border: 1px solid #3D0A91;
+}
+.stars-text {
+  font-weight: bold;
+  color: #3D0A91;
+  margin-left: 8px;
+}
+
+.texte2 {
+    text-align: left;
+    color: #3D0A91;
+}
+
+.avatar-lg {
+    width: 70px;
+    height: 70px;
+}
+
+.rep-texte {
+    color: #989898;
+}
