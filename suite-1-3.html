@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grandiose Collaborators</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html {
+        height: 100%;
+    }
+    body {
+      background-color: white;
+      font-family: 'Inter', sans-serif;
+      display: flex; /* Pour le sticky footer */
+      flex-direction: column; /* Pour le sticky footer */
+      min-height: 100vh; /* Pour le sticky footer */
+    }
+
+    .main-content-wrapper {
+        flex-grow: 1; /* Pour le sticky footer */
+        /* Doit correspondre au dépassement net du .footer-content */
+        /* Dépassement net = abs(footer-content.margin-top) - custom-footer.padding-top */
+        /* 145px - 20px = 125px */
+        margin-bottom: 125px;
+    }
+
+    .badge-role {
+    background-color: #EBE5FC;
+    color: #5227CC;
+    font-size: 0.8rem;
+    padding-right: -1rem; /* Note: Bootstrap ou le navigateur pourrait ignorer les padding négatifs. Vérifiez le rendu. */
+    padding-left: -1rem;  /* Peut-être que 'padding: 0.2em 0.8em;' serait plus standard. */
+    border-radius: 30px;
+    font-weight: 500;
+    }
+    .collaborator-name {
+      font-weight: 700;
+      font-size: 20px;
+      color: #3b0a87;
+      margin-top: 0.5rem;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .collaborator-img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+    .collaborator-card p {
+      color: #3D0A91;
+      /* font-family: Inter, sans-serif; -- Déjà défini sur body */
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+      text-align: left;
+    }
+
+    /* Les styles .footer-wrapper et .footer-inner originaux sont omis car remplacés par .custom-footer etc. */
+
+    .btn-purple { /* Cette classe était dans votre code, je la laisse si vous l'utilisez ailleurs */
+      background-color: #a78bfa;
+      color: #3b0a87;
+      font-weight: bold;
+    }
+
+    .badge-custom {
+    background-color: #3D0A91;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+    border-radius: 30px;
+    font-weight: 500;
+    }
+
+    /* Associer les formes SVG aux images correspondantes */
+    .collaborator-card:nth-child(1) .collaborator-img { clip-path: url(#shape1); }
+    .collaborator-card:nth-child(2) .collaborator-img { clip-path: url(#shape2); }
+    .collaborator-card:nth-child(3) .collaborator-img { clip-path: url(#shape3); }
+    .collaborator-card:nth-child(4) .collaborator-img { clip-path: url(#shape4); }
+
+
+    /* Styles pour le nouveau Footer */
+    .custom-footer {
+        background-color: #4A008C; /* Violet foncé principal du footer */
+        padding-top: 20px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-content {
+        background-color: white;
+        border-radius: 16px;
+        max-width: 1280px;
+        margin: -135px auto 0 auto; /* Dépassement important du bloc blanc */
+        padding: 40px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .footer-logo {
+        background-color: #4A008C; /* Couleur du logo (fond) */
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .footer-button {
+        background-color: #7B42F6; /* Violet plus clair pour le bouton */
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        margin-bottom: 35px;
+    }
+
+    .footer-button:hover {
+        background-color: #6a37d8;
+    }
+
+    .footer-addresses {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        color: #333; /* Couleur de base pour le texte des adresses */
+    }
+
+    .address-block {
+        flex-basis: 48%;
+    }
+
+    .address-block h3 {
+        color: #4A008C; /* Titres d'adresse en violet */
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    .address-block p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #555; /* Texte d'adresse en gris foncé */
+        margin: 0;
+    }
+
+    /* Media Queries pour la responsivité du Footer */
+    @media (max-width: 768px) {
+        .main-content-wrapper {
+            /* Dépassement net mobile = abs(-100px) - 20px = 80px */
+            margin-bottom: 80px;
+        }
+        .footer-content {
+            padding: 25px;
+            margin-top: -100px;
+            max-width: calc(100% - 40px); /* 100% moins les paddings du parent .custom-footer */
+        }
+        .custom-footer {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+        }
+        .footer-addresses {
+            flex-direction: column;
+            gap: 25px;
+        }
+        .address-block {
+            flex-basis: 100%;
+        }
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        .footer-button {
+            margin-bottom: 30px;
+        }
+    }
+     @media (max-width: 480px) {
+        .main-content-wrapper {
+            /* Dépassement net mobile = abs(-85px) - 20px = 65px */
+            margin-bottom: 65px;
+        }
+        .footer-content {
+            padding: 20px;
+            margin-top: -85px;
+        }
+        .custom-footer {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+        }
+        .footer-button {
+            font-size: 14px;
+            padding: 10px 18px;
+        }
+        .address-block h3 {
+            font-size: 17px;
+        }
+        .address-block p {
+            font-size: 13px;
+        }
+     }
+
+     .btn-brand2 {
+    background-color: #5227CC;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .btn-brand-outline2 {
+    background-color: #f1eaff;
+    color: #7749F8;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .img-custom1 {
+        width: 40px;
+        height: auto; /* pour garder le ratio */
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+    }
+
+    .brand-color {
+        color: #3D0A91;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container py-5">
+        <div class="mb-4">
+            <img src="images/MAQUETTAGE WEB images/Version Logo Default.png" class="img-custom1" alt="logo" ></img>
+        </div>
+        <h2 class="text-start brand-color mb-5">Discover our latest Grandiose collaborators</h2>
+        <div class="mt-4">
+            <button class="btn-brand2 me-2">Hire us !</button>
+            <button class="btn-brand-outline2">Discover Grandiose</button>
+        </div>
+
+        <br>
+
+      <div class="row text-center">
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait_nathaniel.jpg" class="collaborator-img" alt="Nathaniel">
+          <div class="badge-role">He’ll break you mind</div>
+          <div class="collaborator-name">Nathaniel Faraday</div>
+          <p>Condimentum ultrices vel nulla gravida lorem. Suspendisse sapien tristique at a leo turpis. Amet eu accumsan porttitor lectus sit viverra malesuada est. Laoreet viverra malesuada amet vitae odio cras.</p>
+        </div>
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait2.png" class="collaborator-img img2" alt="Natiah">
+          <div class="badge-role">The Force</div>
+          <div class="collaborator-name">Natiah Delonghi</div>
+          <p>Sit donec rutrum dui sed mi. Mus donec in massa integer velit mattis non ipsum leo. Sapien est nunc erat sed arcu lectus aliquet tempor ornare. A nam in mi tortor adipiscing nec curabitur.</p>
+        </div>
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait_nathalia.jpg" class="collaborator-img" alt="Nathalia">
+          <div class="badge-role">Blond stamina</div>
+          <div class="collaborator-name">Nathalia Erzigova</div>
+          <p>Id et justo dolor in aliquam aliquet quam. Mus euismod amet sagittis suspendisse sit volutpat amet sit massa. Tempus aliquet dictum netus dignissim morbi habitasse molestie aliquam ut. Massa.</p>
+        </div>
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait_albaneta.jpg" class="collaborator-img" alt="Albaneta">
+          <div class="badge-role">Gen’z, they know something</div>
+          <div class="collaborator-name">Albaneta Duchamp</div>
+          <p>At molestie amet at montes elit nec purus ornare diam. Magna adipiscing viverra arcu feugiat commodo vel vestibulum. In arcu aliquet curabitur adipiscing adipiscing vel. Faucibus orci.</p>
+        </div>
+      </div>
+    </div>
+
+    <svg width="0" height="0">
+      <defs>
+        <clipPath id="shape1" clipPathUnits="objectBoundingBox">
+          <path d="M0.534,0 C0.72,0.006,0.89,0.112,0.956,0.3 C1.029,0.516,1.02,0.776,0.849,0.91 C0.671,1.053,0.427,1.009,0.247,0.872 C0.066,0.735,-0.05,0.497,0.021,0.27 C0.087,0.07,0.338,-0.006,0.534,0 Z"/>
+        </clipPath>
+        <clipPath id="shape2" clipPathUnits="objectBoundingBox">
+          <path d="M0.48,0 C0.278,0.004,0.115,0.15,0.041,0.365 C-0.039,0.594,0.004,0.865,0.197,0.996 C0.398,1.132,0.662,1.007,0.855,0.871 C1.046,0.737,1.186,0.537,1.114,0.326 C1.039,0.106,0.77,-0.005,0.48,0 Z"/>
+        </clipPath>
+        <clipPath id="shape3" clipPathUnits="objectBoundingBox">
+          <path d="M0.523,0 C0.673,-0.011,0.83,0.027,0.926,0.127 C1.017,0.222,1.006,0.356,1.006,0.476 C1.006,0.596,1.027,0.73,0.924,0.828 C0.821,0.926,0.664,0.912,0.523,0.913 C0.38,0.914,0.221,0.929,0.116,0.843 C0.009,0.754,-0.011,0.613,0.006,0.476 C0.022,0.368,0.115,0.294,0.195,0.213 C0.281,0.128,0.354,0.012,0.523,0 Z"/>
+        </clipPath>
+        <clipPath id="shape4" clipPathUnits="objectBoundingBox">
+          <path d="M0.548,0 C0.69,-0.013,0.837,0.056,0.926,0.147 C1.012,0.234,1.007,0.351,1,0.457 C0.993,0.555,0.943,0.645,0.866,0.723 C0.782,0.808,0.687,0.891,0.548,0.902 C0.409,0.913,0.262,0.878,0.163,0.796 C0.062,0.712,-0.016,0.587,0.003,0.457 C0.02,0.344,0.16,0.277,0.266,0.197 C0.371,0.118,0.459,0.013,0.548,0 Z"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+
+
+  <footer class="custom-footer">
+      <div class="footer-content">
+        <div class="mb-4">
+            <img src="images/MAQUETTAGE WEB images/Version Logo Default.png" class="img-custom1" alt="logo" ></img>
+        </div>
+          <button class="footer-button">Be Grandiose</button>
+          <div class="footer-addresses">
+              <div class="address-block">
+                  <h3>New York Office</h3>
+                  <p>1065 Avenue of the Americas, New York, NY 10018-1878</p>
+              </div>
+              <div class="address-block">
+                  <h3>London Office</h3>
+                  <p>Swains Lane Highgate, London N6 6PJ England</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+assemble les code suivant (html et css séparé) : le premier code : html :  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandiose</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container py-4 px-3 mx-auto">
+      <header>
+        <h2 class="brand-color-title">GRANDIOSE</h2>
+        <nav >
+          <a class="brand-color-menu1">Welcome</a>
+          <a class="brand-color-menu2">Hire us !</a>
+          <a class="brand-color-menu2">Work</a>
+          <a class="brand-color-menu2">Blog</a>
+        </nav>
+      </header>
+  
+      <div class="text-start my-5">
+        <img src="images/MAQUETTAGE WEB images/Logo.png" class="img-custom2" alt="logo" ></img>
+        <h1 class="fw-bold brand-color">Grandiose, they are dedicated</h1>
+        <p class="mt-3 brand-color">Hire a Grandiose team and <strong>fire them when you're done</strong>, don’t be afraid, they have work to accomplish !</p>
+        <div class="mt-4">
+          <button class="btn-brand me-2">Hire us !</button>
+          <button class="btn-brand-outline">Discover Grandiose</button>
+        </div>
+      </div>
+  
+      <section>
+        <img src="images/MAQUETTAGE WEB images/Version Logo Default.png" class="img-custom1" alt="logo" ></img>
+        <h2 class="text-start brand-color mb-5">Designed to help</h2>
+
+        <div class="row g-4">
+          <div class="col">
+            <div class="service-card ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sunglasses svg-custom" viewBox="0 0 16 16">
+                <path d="M3 5a2 2 0 0 0-2 2v.5H.5a.5.5 0 0 0 0 1H1V9a2 2 0 0 0 2 2h1a3 3 0 0 0 3-3 1 1 0 1 1 2 0 3 3 0 0 0 3 3h1a2 2 0 0 0 2-2v-.5h.5a.5.5 0 0 0 0-1H15V7a2 2 0 0 0-2-2h-2a2 2 0 0 0-1.888 1.338A2 2 0 0 0 8 6a2 2 0 0 0-1.112.338A2 2 0 0 0 5 5zm0 1h.941c.264 0 .348.356.112.474l-.457.228a2 2 0 0 0-.894.894l-.228.457C2.356 8.289 2 8.205 2 7.94V7a1 1 0 0 1 1-1"/>
+              </svg>
+              <h4 class="brand-color">Brand design</h4>
+              <p class="brand-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula.</p>
+              <button class="btn btn-outline-custom mt-2">I need an identity !</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle svg-custom" viewBox="0 0 16 16">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+              </svg>
+              <h4 class="brand-color">SEO & marketing</h4>
+              <p class="brand-color">Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh</p>
+              <button class="btn btn-outline-primary mt-2">Make me the first !</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill svg-custom" viewBox="0 0 16 16">
+                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+              </svg>
+              <h4 class="brand-color">Creative Design</h4>
+              <p class="brand-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula.</p>
+              <button class="btn btn-outline-primary mt-2">I need innovation !</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="service-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars svg-custom" viewBox="0 0 16 16">
+                <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+              </svg>
+              <h4 class="brand-color">AI consultant</h4>
+              <p  class="brand-color">Mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh</p>
+              <button class="btn btn-outline-primary mt-2">Let’s prompt !</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container py-5">
+      <!-- Stats Section -->
+      <div class="row text-center mb-5">
+        <div class="col-6 col-md">
+          <h2 class="brand-color2">1290</h2>
+          <p class="texte2">collaborators across the world</p>
+        </div>
+        <div class="col-6 col-md">
+          <h2 class="brand-color2">4,48</h2>
+          <p class="texte2"><span class="text-primary">⭐️</span> Trust Pilot evaluation</p>
+        </div>
+        <div class="col-6 col-md">
+          <h2 class="brand-color2">9178</h2>
+          <p class="texte2">hours of dedication everyday</p>
+        </div>
+        <div class="col-6 col-md">
+          <h2 class="brand-color2">890</h2>
+          <p class="texte2">pizzas eaten since 10:00 PM</p>
+        </div>
+        <div class="col-12 col-md">
+          <h2 class="brand-color2">1</h2>
+          <p class="texte2">purpose, your project</p>
+        </div>
+      </div>
+  
+      <!-- Reviews Section -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="review-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/MAQUETTAGE WEB images/happy customer.jpg" class="rounded-circle me-3 avatar-lg " alt="avatar">
+              <span class="badge-custom">Happy customer</span>
+            </div>
+            <p class="texte2" >Donec at cras nisl non aenean eget eu nisl nec. Tempor diam malesuada dictum ornare sagittis sit tempus est. Egestas nulla facilisis turpis ornare nisi tortor eget. Ac purus massa nisi blandit ullamcorper sagittis. Penatibus.</p>
+            <div class="stars mt-3">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="stars-text">5 / 5 stars</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="review-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/MAQUETTAGE WEB images/Testimonies.png" class="rounded-circle me-3 avatar-lg" alt="avatar">
+              <span class="badge-custom">So Grandiose !</span>
+            </div>
+            <p class="texte2" >Faucibus cras felis porta consectetur dui quis. Bibendum orci lorem elementum euismod aliquet orci eget turpis tellus. Diam cras enim vitae pellentesque viverra sem. Augue consectetur arcu diam odio ornare sed eu.</p>
+            <div class="stars mt-3">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot empty"></span>
+              <span class="stars-text">4 / 5 stars</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="review-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/MAQUETTAGE WEB images/so good.jpg" class="rounded-circle me-3 avatar-lg" alt="avatar">
+              <span class="badge-custom">So goooood !</span>
+            </div>
+            <p class="texte2" >A morbi volutpat in leo purus. Ac aliquam tristique laoreet nec turpis id tempus id tincidunt. Purus sit non mollis elementum ac nibh faucibus ut enim. Adipiscing eu tortor viverra vivamus commodo tellus. In sit facilisi aliquam.</p>
+            <div class="stars mt-3">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot empty"></span><span class="dot empty"></span>
+              <span class="stars-text">3 / 5 stars</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      
+      <!-- FAQ Section -->
+      <img src="images/MAQUETTAGE WEB images/Version Logo Default.png" class="faq-icon" alt="logo" ></img>
+      <br></br>
+      <h3 class="brand-color fw-bold mb-4">Your questions</h3>
+  
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              What are these Grandiose people ?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body rep-texte">
+              This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes.
+            </div>
+          </div>
+        </div>
+  
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              You tell me I can hire as many people as I need ?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, absolutely. Hire and fire freely. That’s how flexible we are.
+            </div>
+          </div>
+        </div>
+  
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              How much does this costs ?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Our pricing depends on your needs. Contact us for a quote tailored to your project.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+css :body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .brand-color-title {
+    color: #8540F5;
+  }
+
+  .brand-color {
+    color: #3D0A91;
+  }
+  
+  .brand-color-menu1 {
+    color: #5227CC;
+  }
+
+  .brand-color-menu2 {
+    color: #6C757D;
+  }
+
+
+
+  .btn-brand {
+    background-color: #7749F8;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .btn-brand-outline {
+    background-color: #f1eaff;
+    color: #7749F8;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .service-card {
+    height: 100%;
+    text-align: left;
+  }
+  
+  nav a {
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .btn-outline-custom {
+    color: #7749F8;
+    border: 1px solid #7749F8;
+    background-color: transparent;
+  }
+  
+  .btn-outline-custom:hover {
+    background-color: #7749F8;
+    color: white;
+  }
+
+
+  .img-custom1 {
+    width: 40px;
+    height: auto; /* pour garder le ratio */
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+  }
+
+  .img-custom2 {
+    width: 150px;
+    height: auto; /* pour garder le ratio */
+    padding-bottom: 1rem;
+  }
+
+  .svg-custom{
+    width: 50px;
+    height: auto; /* pour garder le ratio */
+    padding-bottom: 1rem;
+    color: #6610F2;
+  }
+
+
+  
+
+
+
+
+
+
+
+
+  .brand-color2 {
+    text-align: left;
+    color: #3D0A91;
+    font-family: Inter;
+    font-size: 52px;
+    font-weight: 700;
+    font-style: bold;
+
+}
+.review-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1.5rem;
+  height: 100%;
+}
+.badge-custom {
+  background-color: #3D0A91;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.4em 0.6em;
+  border-radius: 30px;
+  font-weight: 500;
+}
+.faq-icon {
+    width: 80px;
+    height: 80px;
+}
+.stars .dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background-color: #3D0A91;
+}
+.stars .dot.empty {
+  background-color: white;
+  border: 1px solid #3D0A91;
+}
+.stars-text {
+  font-weight: bold;
+  color: #3D0A91;
+  margin-left: 8px;
+}
+
+.texte2 {
+    text-align: left;
+    color: #3D0A91;
+}
+
+.avatar-lg {
+    width: 70px;
+    height: 70px;
+}
+
+.rep-texte {
+    color: #989898;
+}
+
+voici mon second code qui ce place a la suite : <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grandiose Collaborators</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html {
+        height: 100%;
+    }
+    body {
+      background-color: white;
+      font-family: 'Inter', sans-serif;
+      display: flex; /* Pour le sticky footer */
+      flex-direction: column; /* Pour le sticky footer */
+      min-height: 100vh; /* Pour le sticky footer */
+    }
+
+    .main-content-wrapper {
+        flex-grow: 1; /* Pour le sticky footer */
+        /* Doit correspondre au dépassement net du .footer-content */
+        /* Dépassement net = abs(footer-content.margin-top) - custom-footer.padding-top */
+        /* 145px - 20px = 125px */
+        margin-bottom: 125px;
+    }
+
+    .badge-role {
+    background-color: #EBE5FC;
+    color: #5227CC;
+    font-size: 0.8rem;
+    padding-right: -1rem; /* Note: Bootstrap ou le navigateur pourrait ignorer les padding négatifs. Vérifiez le rendu. */
+    padding-left: -1rem;  /* Peut-être que 'padding: 0.2em 0.8em;' serait plus standard. */
+    border-radius: 30px;
+    font-weight: 500;
+    }
+    .collaborator-name {
+      font-weight: 700;
+      font-size: 20px;
+      color: #3b0a87;
+      margin-top: 0.5rem;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .collaborator-img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
+    }
+    .collaborator-card p {
+      color: #3D0A91;
+      /* font-family: Inter, sans-serif; -- Déjà défini sur body */
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+      text-align: left;
+    }
+
+    /* Les styles .footer-wrapper et .footer-inner originaux sont omis car remplacés par .custom-footer etc. */
+
+    .btn-purple { /* Cette classe était dans votre code, je la laisse si vous l'utilisez ailleurs */
+      background-color: #a78bfa;
+      color: #3b0a87;
+      font-weight: bold;
+    }
+
+    .badge-custom {
+    background-color: #3D0A91;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+    border-radius: 30px;
+    font-weight: 500;
+    }
+
+    /* Associer les formes SVG aux images correspondantes */
+    .collaborator-card:nth-child(1) .collaborator-img { clip-path: url(#shape1); }
+    .collaborator-card:nth-child(2) .collaborator-img { clip-path: url(#shape2); }
+    .collaborator-card:nth-child(3) .collaborator-img { clip-path: url(#shape3); }
+    .collaborator-card:nth-child(4) .collaborator-img { clip-path: url(#shape4); }
+
+
+    /* Styles pour le nouveau Footer */
+    .custom-footer {
+        background-color: #4A008C; /* Violet foncé principal du footer */
+        padding-top: 20px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-content {
+        background-color: white;
+        border-radius: 16px;
+        max-width: 1280px;
+        margin: -135px auto 0 auto; /* Dépassement important du bloc blanc */
+        padding: 40px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .footer-logo {
+        background-color: #4A008C; /* Couleur du logo (fond) */
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .footer-button {
+        background-color: #7B42F6; /* Violet plus clair pour le bouton */
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        margin-bottom: 35px;
+    }
+
+    .footer-button:hover {
+        background-color: #6a37d8;
+    }
+
+    .footer-addresses {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        color: #333; /* Couleur de base pour le texte des adresses */
+    }
+
+    .address-block {
+        flex-basis: 48%;
+    }
+
+    .address-block h3 {
+        color: #4A008C; /* Titres d'adresse en violet */
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    .address-block p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #555; /* Texte d'adresse en gris foncé */
+        margin: 0;
+    }
+
+    /* Media Queries pour la responsivité du Footer */
+    @media (max-width: 768px) {
+        .main-content-wrapper {
+            /* Dépassement net mobile = abs(-100px) - 20px = 80px */
+            margin-bottom: 80px;
+        }
+        .footer-content {
+            padding: 25px;
+            margin-top: -100px;
+            max-width: calc(100% - 40px); /* 100% moins les paddings du parent .custom-footer */
+        }
+        .custom-footer {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+        }
+        .footer-addresses {
+            flex-direction: column;
+            gap: 25px;
+        }
+        .address-block {
+            flex-basis: 100%;
+        }
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        .footer-button {
+            margin-bottom: 30px;
+        }
+    }
+     @media (max-width: 480px) {
+        .main-content-wrapper {
+            /* Dépassement net mobile = abs(-85px) - 20px = 65px */
+            margin-bottom: 65px;
+        }
+        .footer-content {
+            padding: 20px;
+            margin-top: -85px;
+        }
+        .custom-footer {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 15px;
+        }
+        .footer-button {
+            font-size: 14px;
+            padding: 10px 18px;
+        }
+        .address-block h3 {
+            font-size: 17px;
+        }
+        .address-block p {
+            font-size: 13px;
+        }
+     }
+
+     .btn-brand2 {
+    background-color: #5227CC;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .btn-brand-outline2 {
+    background-color: #f1eaff;
+    color: #7749F8;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .img-custom1 {
+        width: 40px;
+        height: auto; /* pour garder le ratio */
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+    }
+
+    .brand-color {
+        color: #3D0A91;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container py-5">
+        <div class="mb-4">
+            <img src="images/MAQUETTAGE WEB images/Version Logo Default.png" class="img-custom1" alt="logo" ></img>
+        </div>
+        <h2 class="text-start brand-color mb-5">Discover our latest Grandiose collaborators</h2>
+        <div class="mt-4">
+            <button class="btn-brand2 me-2">Hire us !</button>
+            <button class="btn-brand-outline2">Discover Grandiose</button>
+        </div>
+
+        <br>
+
+      <div class="row text-center">
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait_nathaniel.jpg" class="collaborator-img" alt="Nathaniel">
+          <div class="badge-role">He’ll break you mind</div>
+          <div class="collaborator-name">Nathaniel Faraday</div>
+          <p>Condimentum ultrices vel nulla gravida lorem. Suspendisse sapien tristique at a leo turpis. Amet eu accumsan porttitor lectus sit viverra malesuada est. Laoreet viverra malesuada amet vitae odio cras.</p>
+        </div>
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait2.png" class="collaborator-img img2" alt="Natiah">
+          <div class="badge-role">The Force</div>
+          <div class="collaborator-name">Natiah Delonghi</div>
+          <p>Sit donec rutrum dui sed mi. Mus donec in massa integer velit mattis non ipsum leo. Sapien est nunc erat sed arcu lectus aliquet tempor ornare. A nam in mi tortor adipiscing nec curabitur.</p>
+        </div>
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait_nathalia.jpg" class="collaborator-img" alt="Nathalia">
+          <div class="badge-role">Blond stamina</div>
+          <div class="collaborator-name">Nathalia Erzigova</div>
+          <p>Id et justo dolor in aliquam aliquet quam. Mus euismod amet sagittis suspendisse sit volutpat amet sit massa. Tempus aliquet dictum netus dignissim morbi habitasse molestie aliquam ut. Massa.</p>
+        </div>
+        <div class="col-md-3 mb-4 collaborator-card">
+          <img src="images/MAQUETTAGE WEB images/portrait_albaneta.jpg" class="collaborator-img" alt="Albaneta">
+          <div class="badge-role">Gen’z, they know something</div>
+          <div class="collaborator-name">Albaneta Duchamp</div>
+          <p>At molestie amet at montes elit nec purus ornare diam. Magna adipiscing viverra arcu feugiat commodo vel vestibulum. In arcu aliquet curabitur adipiscing adipiscing vel. Faucibus orci.</p>
+        </div>
+      </div>
+    </div>
+
+    <svg width="0" height="0">
+      <defs>
+        <clipPath id="shape1" clipPathUnits="objectBoundingBox">
+          <path d="M0.534,0 C0.72,0.006,0.89,0.112,0.956,0.3 C1.029,0.516,1.02,0.776,0.849,0.91 C0.671,1.053,0.427,1.009,0.247,0.872 C0.066,0.735,-0.05,0.497,0.021,0.27 C0.087,0.07,0.338,-0.006,0.534,0 Z"/>
+        </clipPath>
+        <clipPath id="shape2" clipPathUnits="objectBoundingBox">
+          <path d="M0.48,0 C0.278,0.004,0.115,0.15,0.041,0.365 C-0.039,0.594,0.004,0.865,0.197,0.996 C0.398,1.132,0.662,1.007,0.855,0.871 C1.046,0.737,1.186,0.537,1.114,0.326 C1.039,0.106,0.77,-0.005,0.48,0 Z"/>
+        </clipPath>
+        <clipPath id="shape3" clipPathUnits="objectBoundingBox">
+          <path d="M0.523,0 C0.673,-0.011,0.83,0.027,0.926,0.127 C1.017,0.222,1.006,0.356,1.006,0.476 C1.006,0.596,1.027,0.73,0.924,0.828 C0.821,0.926,0.664,0.912,0.523,0.913 C0.38,0.914,0.221,0.929,0.116,0.843 C0.009,0.754,-0.011,0.613,0.006,0.476 C0.022,0.368,0.115,0.294,0.195,0.213 C0.281,0.128,0.354,0.012,0.523,0 Z"/>
+        </clipPath>
+        <clipPath id="shape4" clipPathUnits="objectBoundingBox">
+          <path d="M0.548,0 C0.69,-0.013,0.837,0.056,0.926,0.147 C1.012,0.234,1.007,0.351,1,0.457 C0.993,0.555,0.943,0.645,0.866,0.723 C0.782,0.808,0.687,0.891,0.548,0.902 C0.409,0.913,0.262,0.878,0.163,0.796 C0.062,0.712,-0.016,0.587,0.003,0.457 C0.02,0.344,0.16,0.277,0.266,0.197 C0.371,0.118,0.459,0.013,0.548,0 Z"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+
+
+  <footer class="custom-footer">
+      <div class="footer-content">
+        <div class="mb-4">
+            <img src="images/MAQUETTAGE WEB images/Version Logo Default.png" class="img-custom1" alt="logo" ></img>
+        </div>
+          <button class="footer-button">Be Grandiose</button>
+          <div class="footer-addresses">
+              <div class="address-block">
+                  <h3>New York Office</h3>
+                  <p>1065 Avenue of the Americas, New York, NY 10018-1878</p>
+              </div>
+              <div class="address-block">
+                  <h3>London Office</h3>
+                  <p>Swains Lane Highgate, London N6 6PJ England</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+</body>
+</html>

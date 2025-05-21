@@ -1,122 +1,207 @@
+/* Styles du premier fichier CSS */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+  /* font-family: Arial, sans-serif; -- Sera surchargé par la définition plus bas */
+  margin: 0;
+  padding: 0; /* padding sera surchargé par le sticky footer si pas d'autre élément */
+}
 
-  .brand-color-title {
-    color: #8540F5;
-  }
+.brand-color-title {
+  color: #8540F5;
+}
 
-  .brand-color {
-    color: #3D0A91;
-  }
-  
-  .brand-color-menu1 {
-    color: #5227CC;
-  }
+.brand-color {
+  color: #3D0A91;
+}
 
-  .brand-color-menu2 {
-    color: #6C757D;
-  }
+.brand-color-menu1 {
+  color: #5227CC;
+}
 
+.brand-color-menu2 {
+  color: #6C757D;
+}
 
+.btn-brand {
+  background-color: #7749F8;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
-  .btn-brand {
-    background-color: #7749F8;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .btn-brand-outline {
-    background-color: #f1eaff;
-    color: #7749F8;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .service-card {
-    height: 100%;
-    text-align: left;
-  }
-  
-  nav a {
-    text-decoration: none;
-    margin-right: 1rem;
-    font-weight: bold;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
+.btn-brand-outline {
+  background-color: #f1eaff;
+  color: #7749F8;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
-  .btn-outline-custom {
-    color: #7749F8;
-    border: 1px solid #7749F8;
-    background-color: transparent;
-  }
-  
-  .btn-outline-custom:hover {
-    background-color: #7749F8;
-    color: white;
-  }
+.service-card {
+  height: 100%;
+  text-align: left;
+}
 
+nav a {
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: bold;
+}
 
-  .img-custom1 {
-    width: 40px;
-    height: auto; /* pour garder le ratio */
-    padding-bottom: 1rem;
-    padding-top: 2rem;
-  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
 
-  .img-custom2 {
-    width: 150px;
-    height: auto; /* pour garder le ratio */
-    padding-bottom: 1rem;
-  }
+.btn-outline-custom {
+  color: #7749F8;
+  border: 1px solid #7749F8;
+  background-color: transparent;
+}
 
-  .svg-custom{
-    width: 50px;
-    height: auto; /* pour garder le ratio */
-    padding-bottom: 1rem;
-    color: #6610F2;
-  }
+.btn-outline-custom:hover {
+  background-color: #7749F8;
+  color: white;
+}
 
+.img-custom1 {
+  width: 40px;
+  height: auto; /* pour garder le ratio */
+  padding-bottom: 1rem;
+  padding-top: 2rem;
+}
 
-  
+.img-custom2 {
+  width: 150px;
+  height: auto; /* pour garder le ratio */
+  padding-bottom: 1rem;
+}
 
+.svg-custom{
+  width: 50px;
+  height: auto; /* pour garder le ratio */
+  padding-bottom: 1rem;
+  color: #6610F2;
+}
 
-
-
-
-
-
-
-  .brand-color2 {
-    text-align: left;
-    color: #3D0A91;
-    font-family: Inter;
-    font-size: 52px;
-    font-weight: 700;
-    font-style: bold;
-
+.brand-color2 {
+  text-align: left;
+  color: #3D0A91;
+  font-family: Inter, sans-serif; /* Spécifié ici, si Inter est voulu pour ces titres spécifiquement */
+  font-size: 52px;
+  font-weight: 700;
+  font-style: bold;
 }
 .review-card {
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 1.5rem;
-  height: 100%;
+border: 1px solid #eee;
+border-radius: 10px;
+padding: 1.5rem;
+height: 100%;
 }
-.badge-custom {
+/* .badge-custom est défini plus bas et surchargera cette version si les propriétés diffèrent. */
+.faq-icon {
+  width: 80px;
+  height: 80px;
+}
+.stars .dot {
+display: inline-block;
+width: 16px;
+height: 16px;
+margin-right: 5px;
+border-radius: 50%;
+background-color: #3D0A91;
+}
+.stars .dot.empty {
+background-color: white;
+border: 1px solid #3D0A91;
+}
+.stars-text {
+font-weight: bold;
+color: #3D0A91;
+margin-left: 8px;
+}
+
+.texte2 {
+  text-align: left;
+  color: #3D0A91;
+}
+
+.avatar-lg {
+  width: 70px;
+  height: 70px;
+}
+
+.rep-texte {
+  color: #989898;
+}
+
+/* Styles du deuxième fichier (section collaborateurs et footer) */
+html {
+    height: 100%;
+}
+body {
+  background-color: white;
+  font-family: 'Inter', sans-serif; /* Cette définition surchargera le Arial du premier CSS */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content-wrapper {
+    flex-grow: 1;
+    /* Dépassement net = abs(footer-content.margin-top) - custom-footer.padding-top */
+    /* 135px - 20px = 115px */
+    margin-bottom: 115px;
+}
+
+.badge-role {
+  background-color: #EBE5FC;
+  color: #5227CC;
+  font-size: 0.8rem;
+  /* padding-right: -1rem; Note: padding négatif non standard */
+  /* padding-left: -1rem;  Note: padding négatif non standard */
+  padding: 0.2em 0.8em; /* Suggestion de remplacement */
+  border-radius: 30px;
+  font-weight: 500;
+}
+.collaborator-name {
+  font-weight: 700;
+  font-size: 20px;
+  color: #3b0a87;
+  margin-top: 0.5rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.collaborator-img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
+.collaborator-card p {
+  color: #3D0A91;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+}
+
+.btn-purple {
+  background-color: #a78bfa;
+  color: #3b0a87;
+  font-weight: bold;
+}
+
+.badge-custom { /* Cette définition surchargera celle du premier CSS si elle existe */
   background-color: #3D0A91;
   color: #fff;
   font-size: 0.8rem;
@@ -124,38 +209,165 @@ body {
   border-radius: 30px;
   font-weight: 500;
 }
-.faq-icon {
-    width: 80px;
-    height: 80px;
+
+/* Associer les formes SVG aux images correspondantes */
+.collaborator-card:nth-child(1) .collaborator-img { clip-path: url(#shape1); }
+.collaborator-card:nth-child(2) .collaborator-img { clip-path: url(#shape2); }
+.collaborator-card:nth-child(3) .collaborator-img { clip-path: url(#shape3); }
+.collaborator-card:nth-child(4) .collaborator-img { clip-path: url(#shape4); }
+
+
+/* Styles pour le Footer */
+.custom-footer {
+    background-color: #4A008C;
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
 }
-.stars .dot {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-  border-radius: 50%;
-  background-color: #3D0A91;
+
+.footer-content {
+    background-color: white;
+    border-radius: 16px;
+    max-width: 1280px;
+    margin: -135px auto 0 auto; /* Tel que dans le CSS du 2e code fourni */
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    text-align: left; /* Pour que le logo et le bouton soient à gauche par défaut */
 }
-.stars .dot.empty {
-  background-color: white;
-  border: 1px solid #3D0A91;
+/* Style pour l'image logo dans le footer */
+.footer-logo-img {
+    width: 48px; /* Taille similaire au footer-logo original */
+    height: auto;
+    /* padding-top et padding-bottom de .img-custom1 peuvent être trop grands ici, ajustez si besoin */
+    padding-bottom: 0; /* Potentiellement ajuster */
+    padding-top: 0;   /* Potentiellement ajuster */
+    margin-bottom: 25px; /* Pour espacer du bouton */
 }
-.stars-text {
+
+
+.footer-button {
+    background-color: #7B42F6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Pour qu'il ne prenne pas toute la largeur */
+    margin-bottom: 35px;
+}
+
+.footer-button:hover {
+    background-color: #6a37d8;
+}
+
+.footer-addresses {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #333;
+}
+
+.address-block {
+    flex-basis: 48%;
+}
+
+.address-block h3 {
+    color: #4A008C;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.address-block p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Media Queries pour la responsivité du Footer et du main-content-wrapper */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        /* Dépassement net mobile = abs(-100px) - 20px = 80px */
+        margin-bottom: 80px; /* Doit correspondre au calcul pour -100px */
+    }
+    .footer-content {
+        padding: 25px;
+        margin-top: -100px; /* Ajusté pour mobile */
+        max-width: calc(100% - 40px);
+    }
+    .custom-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+    .footer-addresses {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .address-block {
+        flex-basis: 100%;
+    }
+    .footer-logo-img { /* Ajustement pour le logo du footer sur mobile */
+        margin-bottom: 20px;
+    }
+    .footer-button {
+        margin-bottom: 30px;
+    }
+}
+ @media (max-width: 480px) {
+    .main-content-wrapper {
+        /* Dépassement net mobile = abs(-85px) - 20px = 65px */
+        margin-bottom: 65px; /* Doit correspondre au calcul pour -85px */
+    }
+    .footer-content {
+        padding: 20px;
+        margin-top: -85px; /* Ajusté pour très petits écrans */
+    }
+    .custom-footer {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+    .footer-button {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+    .address-block h3 {
+        font-size: 17px;
+    }
+    .address-block p {
+        font-size: 13px;
+    }
+ }
+
+ /* Styles .btn-brand2 et .btn-brand-outline2 du second code */
+ .btn-brand2 {
+  background-color: #5227CC;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
   font-weight: bold;
-  color: #3D0A91;
-  margin-left: 8px;
 }
 
-.texte2 {
-    text-align: left;
-    color: #3D0A91;
+.btn-brand-outline2 {
+  background-color: #f1eaff;
+  color: #7749F8; /* Couleur similaire au .btn-brand-outline du premier code */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.avatar-lg {
-    width: 70px;
-    height: 70px;
-}
-
-.rep-texte {
-    color: #989898;
-}
+/* Définition de .img-custom1 et .brand-color du second code (sera prioritaire si différent) */
+/* .img-custom1 est déjà défini, la dernière définition compte. */
+/* .brand-color est déjà défini, la dernière définition compte. */

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Example - Even Further Adjusted Spacing</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-content-wrapper {
+            flex-grow: 1;
+        }
+
+        .page-content-before-footer {
+            padding: 50px 20px;
+            text-align: center;
+            /* Augmenté pour correspondre au nouveau dépassement très important du footer-content */
+            margin-bottom: 125px;
+        }
+
+        .custom-footer {
+            background-color: #4A008C; /* Violet foncé principal */
+            /* Espace violet au-dessus du point de "remontée" du contenu blanc */
+            padding-top: 20px;
+            /* Espacement violet uniforme sur les côtés et en bas */
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 25px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer-content {
+            background-color: white;
+            border-radius: 16px;
+            max-width: 1280px;
+            /* Augmentation très significative de la marge négative pour monter davantage le bloc blanc.
+               Si padding-top du parent est 20px, dépassement net = 145px - 20px = 125px. */
+            margin: -135px auto 0 auto;
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            background-color: #4A008C;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .footer-button {
+            background-color: #7B42F6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-bottom: 35px;
+        }
+
+        .footer-button:hover {
+            background-color: #6a37d8;
+        }
+
+        .footer-addresses {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #333;
+        }
+
+        .address-block {
+            flex-basis: 48%;
+        }
+
+        .address-block h3 {
+            color: #4A008C;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .address-block p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                padding: 25px;
+                /* Ajuster la marge négative pour les petits écrans */
+                margin-top: -100px; /* Dépassement net mobile = 100px - 20px = 80px */
+                max-width: calc(100% - 40px);
+            }
+
+            .page-content-before-footer {
+                margin-bottom: 80px;
+            }
+
+            .custom-footer {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 20px;
+            }
+
+            .footer-addresses {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .address-block {
+                flex-basis: 100%;
+            }
+
+            .footer-logo {
+                margin-bottom: 20px;
+            }
+
+            .footer-button {
+                margin-bottom: 30px;
+            }
+        }
+         @media (max-width: 480px) {
+            .footer-content {
+                padding: 20px;
+                 margin-top: -85px; /* Dépassement net mobile = 85px - 20px = 65px */
+            }
+             .page-content-before-footer {
+                margin-bottom: 65px;
+            }
+             .custom-footer {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 20px;
+            }
+             .footer-button {
+                font-size: 14px;
+                padding: 10px 18px;
+             }
+             .address-block h3 {
+                font-size: 17px;
+             }
+             .address-block p {
+                font-size: 13px;
+             }
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <footer class="custom-footer">
+        <div class="footer-content">
+            <div class="footer-logo">g</div>
+            <button class="footer-button">Be Grandiose</button>
+            <div class="footer-addresses">
+                <div class="address-block">
+                    <h3>New York Office</h3>
+                    <p>1065 Avenue of the Americas, New York, NY 10018-1878</p>
+                </div>
+                <div class="address-block">
+                    <h3>London Office</h3>
+                    <p>Swains Lane Highgate, London N6 6PJ England</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
