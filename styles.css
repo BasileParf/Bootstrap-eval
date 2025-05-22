@@ -1,7 +1,7 @@
 /* Styles du premier fichier CSS */
 body {
   /* font-family: Arial, sans-serif; -- Sera surchargé par la définition plus bas */
-  margin: 0;
+  margin: 75;
   padding: 0; /* padding sera surchargé par le sticky footer si pas d'autre élément */
 }
 
@@ -11,6 +11,7 @@ body {
 
 .brand-color {
   color: #3D0A91;
+  padding-left: 3rem;
 }
 
 .brand-color-menu1 {
@@ -56,6 +57,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1rem;
+  padding-left: 3rem
 }
 
 .btn-outline-custom {
@@ -80,6 +82,7 @@ header {
   width: 150px;
   height: auto; /* pour garder le ratio */
   padding-bottom: 1rem;
+  padding-left: 3rem
 }
 
 .svg-custom{
@@ -371,3 +374,4 @@ body {
 /* Définition de .img-custom1 et .brand-color du second code (sera prioritaire si différent) */
 /* .img-custom1 est déjà défini, la dernière définition compte. */
 /* .brand-color est déjà défini, la dernière définition compte. */
+

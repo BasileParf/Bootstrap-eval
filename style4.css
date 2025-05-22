@@ -8,18 +8,17 @@ body {
   background-color: #3e1da0;
   border-radius: 16px;
   padding: 60px 80px;
-  max-width: 1180px;
+  max-width: 1050px;
   margin: auto;
 }
 
 .project-box {
   background-color: #6610F2;
   padding: 20px;
-  padding-right: 1070px;
+  padding-right: 950px;
   border-radius: 10px;
   display: inline-block;
   margin-bottom: 10px;
-  max-width: 240px;
 }
 
  .card-img {
