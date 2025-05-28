@@ -59,7 +59,7 @@ header {
   margin-bottom: 1rem;
   padding-left: 3rem
 }
-
+/*
 .btn-outline-custom {
   color: #7749F8;
   border: 1px solid #7749F8;
@@ -70,7 +70,7 @@ header {
   background-color: #7749F8;
   color: white;
 }
-
+*/
 .img-custom1 {
   width: 40px;
   height: auto; /* pour garder le ratio */
@@ -129,6 +129,10 @@ color: #3D0A91;
 margin-left: 8px;
 }
 
+.svg-wrapper {
+  overflow: hidden;
+}
+
 .texte2 {
   text-align: left;
   color: #3D0A91;
@@ -143,17 +147,6 @@ margin-left: 8px;
   color: #989898;
 }
 
-/* Styles du deuxième fichier (section collaborateurs et footer) */
-html {
-    height: 100%;
-}
-body {
-  background-color: white;
-  font-family: 'Inter', sans-serif; /* Cette définition surchargera le Arial du premier CSS */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 
 .main-content-wrapper {
     flex-grow: 1;
@@ -161,17 +154,31 @@ body {
     /* 135px - 20px = 115px */
     margin-bottom: 115px;
 }
+.collaborators-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.badge-role-wrapper {
+  text-align: left;
+  width: 100%;
+}
 
 .badge-role {
   background-color: #EBE5FC;
   color: #5227CC;
   font-size: 0.8rem;
-  /* padding-right: -1rem; Note: padding négatif non standard */
-  /* padding-left: -1rem;  Note: padding négatif non standard */
-  padding: 0.2em 0.8em; /* Suggestion de remplacement */
+  padding: 0.2em 0.4em;
   border-radius: 30px;
   font-weight: 500;
+  display: inline-block;
+  margin-bottom: 0.5em;
 }
+
+.row {
+  overflow: hidden;
+}
+
 .collaborator-name {
   font-weight: 700;
   font-size: 20px;
@@ -180,6 +187,7 @@ body {
   text-align: left;
   margin-bottom: 1rem;
 }
+
 .collaborator-img {
     width: 220px;
     height: 220px;
@@ -237,7 +245,7 @@ body {
     border-radius: 16px;
     max-width: 1280px;
     margin: -135px auto 0 auto; /* Tel que dans le CSS du 2e code fourni */
-    padding: 40px;
+    padding: 25px;
     position: relative;
     z-index: 1;
     text-align: left; /* Pour que le logo et le bouton soient à gauche par défaut */
@@ -362,6 +370,15 @@ body {
   font-weight: bold;
 }
 
+.btn-brand3 {
+  background-color: #5227CC;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: normal;
+}
+
 .btn-brand-outline2 {
   background-color: #f1eaff;
   color: #7749F8; /* Couleur similaire au .btn-brand-outline du premier code */
@@ -371,6 +388,23 @@ body {
   font-weight: bold;
 }
 
+.btn-brand-outline3 {
+  background-color: #7749F8;
+  color: #ffffff; /* Couleur similaire au .btn-brand-outline du premier code */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: normal;
+  margin-right: 1rem;
+}
+
+
+.purple-bar {
+  height: 2px;
+  background-color: #E0CFFC;
+  width: calc(100% - 10rem); /* total horizontal margin */
+  margin: 3rem auto; /* vertical and horizontal centering */
+}
 /* Définition de .img-custom1 et .brand-color du second code (sera prioritaire si différent) */
 /* .img-custom1 est déjà défini, la dernière définition compte. */
 /* .brand-color est déjà défini, la dernière définition compte. */
