@@ -102,3 +102,32 @@
     border-radius: 4px;
   }
   
+  .img-custom2 {
+    width: 150px;
+    height: auto; /* pour garder le ratio */
+    padding-bottom: 1rem;
+    padding-left: 0rem
+  }
+
+  .brand-color {
+    color: #3D0A91;
+  }
+
+  .brand-color-menu1 {
+    color: #5227CC;
+  }
+  
+  .brand-color-menu2 {
+    color: #6C757D;
+  }
+
+  .brand-color-title {
+    color: #8540F5;
+    padding-left: 0rem
+  }
+
+  nav a {
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+  }

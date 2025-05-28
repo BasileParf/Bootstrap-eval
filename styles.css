@@ -7,11 +7,12 @@ body {
 
 .brand-color-title {
   color: #8540F5;
+  padding-left: 0rem
 }
 
 .brand-color {
   color: #3D0A91;
-  padding-left: 3rem;
+  padding-left: 0rem;
 }
 
 .brand-color-menu1 {
@@ -57,7 +58,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-  padding-left: 3rem
+  padding-left: 0rem
 }
 /*
 .btn-outline-custom {
@@ -82,7 +83,7 @@ header {
   width: 150px;
   height: auto; /* pour garder le ratio */
   padding-bottom: 1rem;
-  padding-left: 3rem
+  padding-left: 0rem
 }
 
 .svg-custom{
@@ -409,3 +410,11 @@ margin-left: 8px;
 /* .img-custom1 est déjà défini, la dernière définition compte. */
 /* .brand-color est déjà défini, la dernière définition compte. */
 
+.logo-grandiose {
+  width: 100px; /* ou adapte à ta taille */
+  height: auto;
+  transform: rotate(-5deg);
+  border-radius: 20px;
+  background-color: #5B11D4; /* fond violet si besoin */
+  padding: 10px;
+}
