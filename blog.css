@@ -58,6 +58,138 @@ img-custom2 {
 
   nav a {
     text-decoration: none;
-    margin-right: 1rem;
     font-weight: bold;
   }
+  
+  /* Styles pour le Footer */
+.custom-footer {
+    background-color: #4A008C;
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    background-color: white;
+    border-radius: 16px;
+    max-width: 1280px;
+    margin: -0px auto 0 auto; /* Tel que dans le CSS du 2e code fourni */
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+    text-align: left; /* Pour que le logo et le bouton soient à gauche par défaut */
+}
+
+/* Style pour l'image logo dans le footer */
+.footer-logo-img {
+    width: 48px; /* Taille similaire au footer-logo original */
+    height: auto;
+    /* padding-top et padding-bottom de .img-custom1 peuvent être trop grands ici, ajustez si besoin */
+    padding-bottom: 0; /* Potentiellement ajuster */
+    padding-top: 0;   /* Potentiellement ajuster */
+    margin-bottom: 25px; /* Pour espacer du bouton */
+}
+
+
+.footer-button {
+    background-color: #7B42F6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Pour qu'il ne prenne pas toute la largeur */
+    margin-bottom: 35px;
+}
+
+.footer-button:hover {
+    background-color: #6a37d8;
+}
+
+.footer-addresses {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #333;
+}
+
+.address-block {
+    flex-basis: 48%;
+}
+
+.address-block h3 {
+    color: #4A008C;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.address-block p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Media Queries pour la responsivité du Footer et du main-content-wrapper */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        /* Dépassement net mobile = abs(-100px) - 20px = 80px */
+        margin-bottom: 80px; /* Doit correspondre au calcul pour -100px */
+    }
+    .footer-content {
+        padding: 25px;
+        margin-top: -100px; /* Ajusté pour mobile */
+        max-width: calc(100% - 40px);
+    }
+    .custom-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+    .footer-addresses {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .address-block {
+        flex-basis: 100%;
+    }
+    .footer-logo-img { /* Ajustement pour le logo du footer sur mobile */
+        margin-bottom: 20px;
+    }
+    .footer-button {
+        margin-bottom: 30px;
+    }
+}
+ @media (max-width: 480px) {
+    .main-content-wrapper {
+        /* Dépassement net mobile = abs(-85px) - 20px = 65px */
+        margin-bottom: 65px; /* Doit correspondre au calcul pour -85px */
+    }
+    .footer-content {
+        padding: 20px;
+        margin-top: -85px; /* Ajusté pour très petits écrans */
+    }
+    .custom-footer {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+    .footer-button {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+    .address-block h3 {
+        font-size: 17px;
+    }
+    .address-block p {
+        font-size: 13px;
+    }
+ }
