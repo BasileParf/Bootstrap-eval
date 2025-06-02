@@ -5,41 +5,94 @@
   <title>Grandiose</title>
   <link rel="stylesheet" href="styles5.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .brand-color-title {
-      color: #8540F5;
-    }
-    .brand-color-menu1 {
-      color: #5227CC;
-    }
-    .brand-color-menu2 {
-      color: #6C757D;
-    }
-    .img-custom2 {
-      width: 150px;
-      height: auto;
-      transform: rotate(-5deg);
-      border-radius: 20px;
-    }
-    .tag {
-      background-color: #7749F8;
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-    }
-  </style>
+  <link rel="stylesheet" href="transition.css" />
 </head>
 <body>
-  <div class="container py-4 mb-custom">
-    <header class="d-flex align-items-center">
+
+  <div class="page-transition" id="page-transition"></div>
+
+
+  <div class="modal fade" id="hireModal" tabindex="-1" aria-labelledby="hireModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold" id="hireModalLabel">Hire us !</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+  
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Your full name</label>
+              <input type="text" class="form-control" placeholder="Eg. John Grandiose">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="Eg. john@grandiose.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Describe your project in a few lines</label>
+              <textarea class="form-control" rows="3" placeholder="Write a message"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your budget</label>
+              <select class="form-select">
+                <option selected>No scale selected</option>
+                <option>Less than 1 000€</option>
+                <option>1 000 – 5 000€</option>
+                <option>More than 5 000€</option>
+              </select>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">What are the profile you’ll need ?</label>
+              <p class="text-muted small">The number in the badge indicates how much people are available to hire</p>
+  
+              <div class="form-check d-flex justify-content-between align-items-center border rounded px-3 py-2 mb-2">
+                <div>
+                  <input class="form-check-input me-2" type="checkbox" id="creativeCheck">
+                  <label class="form-check-label fw-bold" for="creativeCheck">Creatives</label><br />
+                  <small class="text-muted">You want a team of designers</small>
+                </div>
+                <span class="badge bg-light text-dark fw-bold">340</span>
+              </div>
+  
+              <div class="form-check d-flex justify-content-between align-items-center border rounded px-3 py-2 mb-2">
+                <div>
+                  <input class="form-check-input me-2" type="checkbox" id="seoCheck">
+                  <label class="form-check-label fw-bold" for="seoCheck">SEO and search engines geeks</label><br />
+                  <small class="text-muted">You want them to find you</small>
+                </div>
+                <span class="badge bg-light text-dark fw-bold">1 209</span>
+              </div>
+  
+              <div class="form-check d-flex justify-content-between align-items-center border rounded px-3 py-2">
+                <div>
+                  <input class="form-check-input me-2" type="checkbox" id="techCheck">
+                  <label class="form-check-label fw-bold" for="techCheck">Techs, devs, architects</label><br />
+                  <small class="text-muted">Brilliant minds at your service</small>
+                </div>
+                <span class="badge bg-light text-dark fw-bold">290</span>
+              </div>
+            </div>
+          </form>
+        </div>
+  
+        <div class="modal-footer border-0 justify-content-between">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Become Grandiose !</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container py-4 px-3 mx-auto">
+    <header class="d-flex align-items-center justify-content-start">
       <h2 class="brand-color-title mb-0 me-4">GRANDIOSE</h2>
       <nav class="d-flex gap-4">
-        <a class="brand-color-menu1 text-decoration-none" href="#">Welcome</a>
-        <a class="brand-color-menu2 text-decoration-none" href="#">Hire us !</a>
-        <a class="brand-color-menu2 text-decoration-none" href="#">Work</a>
-        <a class="brand-color-menu2 text-decoration-none" href="#">Blog</a>
+        <a class="brand-color-menu2" href="#" onclick="transitionToPage('index.html')">Welcome</a>
+        <a class="brand-color-menu2" data-bs-toggle="modal" data-bs-target="#hireModal">Hire us !</a>
+        <a class="brand-color-menu1" href="#" onclick="transitionToPage('index5.html')">Work</a>
+        <a class="brand-color-menu2" href="#" onclick="transitionToPage('blog.html')">Blog</a>
       </nav>
     </header>
 
@@ -189,5 +242,8 @@
         </div>
     </div>
   </footer>
+
+  <script src="transition.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

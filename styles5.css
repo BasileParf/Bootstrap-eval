@@ -210,3 +210,34 @@
   .pagination-container {
     margin-bottom: 7rem; /* ajuste à ta convenance */
   }
+
+  .brand-color-title {
+    color: #8540F5;
+  }
+  .brand-color-menu1 {
+    color: #5227CC;
+  }
+  .brand-color-menu2 {
+    color: #6C757D;
+  }
+  .img-custom2 {
+    width: 150px;
+    height: auto;
+    transform: rotate(-5deg);
+    border-radius: 20px;
+  }
+  .tag {
+    background-color: #7749F8;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+  }
+
+  body.modal-open .container,
+  body.modal-open header,
+  body.modal-open footer {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+  }

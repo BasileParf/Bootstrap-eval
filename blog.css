@@ -226,3 +226,8 @@ img-custom2 {
   .pagination-container {
     margin-bottom: 7rem; /* ajuste à ta convenance */
   }
+
+  .modal-backdrop.show {
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
