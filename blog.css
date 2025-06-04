@@ -1,7 +1,6 @@
 body {
-    /* font-family: Arial, sans-serif; -- Sera surchargé par la définition plus bas */
     margin: 0;
-    padding: 0; /* padding sera surchargé par le sticky footer si pas d'autre élément */
+    padding: 0;
   }
 
 .card {
@@ -208,12 +207,12 @@ img-custom2 {
   }
 
   .mb-custom {
-    margin-bottom: 8rem; /* augmente à 10rem si besoin */
+    margin-bottom: 8rem; 
   }
 
   .img-custom1 {
     width: 40px;
-    height: auto; /* pour garder le ratio */
+    height: auto; 
     padding-bottom: 1rem;
     padding-top: 2rem;
   }
@@ -224,7 +223,7 @@ img-custom2 {
   }
 
   .pagination-container {
-    margin-bottom: 7rem; /* ajuste à ta convenance */
+    margin-bottom: 7rem; 
   }
 
   .modal-backdrop.show {

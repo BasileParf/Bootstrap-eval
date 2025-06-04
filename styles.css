@@ -1,9 +1,7 @@
-/* Styles du premier fichier CSS */
+
 body {
-  /* font-family: Arial, sans-serif; -- Sera surchargé par la définition plus bas */
   margin: 75;
-  padding: 0; /* padding sera surchargé par le sticky footer si pas d'autre élément */
-}
+  padding: 0;
 
 .brand-color-title {
   color: #8540F5;
@@ -74,21 +72,21 @@ header {
 */
 .img-custom1 {
   width: 40px;
-  height: auto; /* pour garder le ratio */
+  height: auto; 
   padding-bottom: 1rem;
   padding-top: 2rem;
 }
 
 .img-custom2 {
   width: 150px;
-  height: auto; /* pour garder le ratio */
+  height: auto; 
   padding-bottom: 1rem;
   padding-left: 0rem
 }
 
 .svg-custom{
   width: 50px;
-  height: auto; /* pour garder le ratio */
+  height: auto; 
   padding-bottom: 1rem;
   color: #6610F2;
 }
@@ -96,7 +94,7 @@ header {
 .brand-color2 {
   text-align: left;
   color: #3D0A91;
-  font-family: Inter, sans-serif; /* Spécifié ici, si Inter est voulu pour ces titres spécifiquement */
+  font-family: Inter, sans-serif; 
   font-size: 52px;
   font-weight: 700;
   font-style: bold;
@@ -107,7 +105,7 @@ border-radius: 10px;
 padding: 1.5rem;
 height: 100%;
 }
-/* .badge-custom est défini plus bas et surchargera cette version si les propriétés diffèrent. */
+
 .faq-icon {
   width: 80px;
   height: 80px;
@@ -151,8 +149,6 @@ margin-left: 8px;
 
 .main-content-wrapper {
     flex-grow: 1;
-    /* Dépassement net = abs(footer-content.margin-top) - custom-footer.padding-top */
-    /* 135px - 20px = 115px */
     margin-bottom: 115px;
 }
 .collaborators-section {
@@ -213,7 +209,7 @@ margin-left: 8px;
   font-weight: bold;
 }
 
-.badge-custom { /* Cette définition surchargera celle du premier CSS si elle existe */
+.badge-custom { 
   background-color: #3D0A91;
   color: #fff;
   font-size: 0.8rem;
@@ -245,20 +241,20 @@ margin-left: 8px;
     background-color: white;
     border-radius: 16px;
     max-width: 1280px;
-    margin: -135px auto 0 auto; /* Tel que dans le CSS du 2e code fourni */
+    margin: -135px auto 0 auto; 
     padding: 25px;
     position: relative;
     z-index: 1;
-    text-align: left; /* Pour que le logo et le bouton soient à gauche par défaut */
+    text-align: left; 
 }
-/* Style pour l'image logo dans le footer */
+
+/* Style pour l image logo dans le footer */
 .footer-logo-img {
-    width: 48px; /* Taille similaire au footer-logo original */
+    width: 48px; 
     height: auto;
-    /* padding-top et padding-bottom de .img-custom1 peuvent être trop grands ici, ajustez si besoin */
-    padding-bottom: 0; /* Potentiellement ajuster */
-    padding-top: 0;   /* Potentiellement ajuster */
-    margin-bottom: 25px; /* Pour espacer du bouton */
+    padding-bottom: 0; 
+    padding-top: 0; 
+    margin-bottom: 25px;
 }
 
 
@@ -272,7 +268,7 @@ margin-left: 8px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: inline-block; /* Pour qu'il ne prenne pas toute la largeur */
+    display: inline-block;
     margin-bottom: 35px;
 }
 
@@ -305,15 +301,14 @@ margin-left: 8px;
     margin: 0;
 }
 
-/* Media Queries pour la responsivité du Footer et du main-content-wrapper */
+/* responsivité du Footer */
 @media (max-width: 768px) {
     .main-content-wrapper {
-        /* Dépassement net mobile = abs(-100px) - 20px = 80px */
-        margin-bottom: 80px; /* Doit correspondre au calcul pour -100px */
+        margin-bottom: 80px;
     }
     .footer-content {
         padding: 25px;
-        margin-top: -100px; /* Ajusté pour mobile */
+        margin-top: -100px;
         max-width: calc(100% - 40px);
     }
     .custom-footer {
@@ -328,7 +323,7 @@ margin-left: 8px;
     .address-block {
         flex-basis: 100%;
     }
-    .footer-logo-img { /* Ajustement pour le logo du footer sur mobile */
+    .footer-logo-img {
         margin-bottom: 20px;
     }
     .footer-button {
@@ -337,12 +332,11 @@ margin-left: 8px;
 }
  @media (max-width: 480px) {
     .main-content-wrapper {
-        /* Dépassement net mobile = abs(-85px) - 20px = 65px */
-        margin-bottom: 65px; /* Doit correspondre au calcul pour -85px */
+        margin-bottom: 65px; 
     }
     .footer-content {
         padding: 20px;
-        margin-top: -85px; /* Ajusté pour très petits écrans */
+        margin-top: -85px; 
     }
     .custom-footer {
         padding-left: 15px;
@@ -361,7 +355,7 @@ margin-left: 8px;
     }
  }
 
- /* Styles .btn-brand2 et .btn-brand-outline2 du second code */
+ /* Styles .btn-brand2 et .btn-brand-outline2 */
  .btn-brand2 {
   background-color: #5227CC;
   color: #fff;
@@ -382,7 +376,7 @@ margin-left: 8px;
 
 .btn-brand-outline2 {
   background-color: #f1eaff;
-  color: #7749F8; /* Couleur similaire au .btn-brand-outline du premier code */
+  color: #7749F8;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -391,7 +385,7 @@ margin-left: 8px;
 
 .btn-brand-outline3 {
   background-color: #7749F8;
-  color: #ffffff; /* Couleur similaire au .btn-brand-outline du premier code */
+  color: #ffffff; 
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -403,19 +397,17 @@ margin-left: 8px;
 .purple-bar {
   height: 2px;
   background-color: #E0CFFC;
-  width: calc(100% - 10rem); /* total horizontal margin */
-  margin: 3rem auto; /* vertical and horizontal centering */
+  width: calc(100% - 10rem); 
+  margin: 3rem auto; 
 }
-/* Définition de .img-custom1 et .brand-color du second code (sera prioritaire si différent) */
-/* .img-custom1 est déjà défini, la dernière définition compte. */
-/* .brand-color est déjà défini, la dernière définition compte. */
+
 
 .logo-grandiose {
-  width: 100px; /* ou adapte à ta taille */
+  width: 100px; 
   height: auto;
   transform: rotate(-5deg);
   border-radius: 20px;
-  background-color: #5B11D4; /* fond violet si besoin */
+  background-color: #5B11D4;
   padding: 10px;
 }
 
@@ -424,4 +416,3 @@ margin-left: 8px;
   backdrop-filter: blur(6px);
   background-color: rgba(0, 0, 0, 0.2);
 }
-

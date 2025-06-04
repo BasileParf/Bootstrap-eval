@@ -1,4 +1,4 @@
-/* Styles personnalisés pour la page Grandiose en Bootstrap */
+
 
 .brand-color-title {
     color: #8540F5;
@@ -192,12 +192,12 @@
   }
 
   .mb-custom {
-    margin-bottom: 8rem; /* augmente à 10rem si besoin */
+    margin-bottom: 8rem; 
   }
 
   .img-custom1 {
     width: 40px;
-    height: auto; /* pour garder le ratio */
+    height: auto; 
     padding-bottom: 1rem;
     padding-top: 2rem;
   }
@@ -208,8 +208,7 @@
   }
 
   .pagination-container {
-    margin-bottom: 7rem; /* ajuste à ta convenance */
-  }
+    margin-bottom: 7rem;
 
   .brand-color-title {
     color: #8540F5;

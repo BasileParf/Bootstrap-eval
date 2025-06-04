@@ -1,3 +1,4 @@
+// javascript qui gere l animation de transition
 function transitionToPage(href) {
     const overlay = document.getElementById('page-transition');
     if (!overlay) {
@@ -9,11 +10,11 @@ function transitionToPage(href) {
   
     setTimeout(() => {
       overlay.classList.add('out');
-    }, 700); // entrée complète
+    }, 700); 
   
     setTimeout(() => {
       window.location.href = href;
-    }, 1400); // sortie terminée
+    }, 1400); 
   }
   
   window.addEventListener('pageshow', () => {
