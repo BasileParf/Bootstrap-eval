@@ -43,7 +43,7 @@ body {
 
 img-custom2 {
     width: 150px;
-    height: auto; /* pour garder le ratio */
+    height: auto; 
     padding-bottom: 1rem;
     padding-left: 0rem
   }
